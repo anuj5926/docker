@@ -43,7 +43,7 @@ reverseProxyApp.use((req, res) => {
 
     console.log(`proxy to ${target}`);
 
-    return proxy.web(req, res, { target, changeOrigin: true, ws: true });
+    return proxy.web(req, res, { target, changeOrigin: true, ws: true,secure:false });
 
 })
 
@@ -68,7 +68,7 @@ reverseProxy.on('upgrade', (req, socket, head) => {
 
     console.log(`proxy to ${target}`);
 
-    return proxy.ws(req, socket, head, { target, ws: true });
+    return proxy.ws(req, socket, head, { target, ws: true,secure:false });
 })
 
 reverseProxy.listen(5000, () => {
